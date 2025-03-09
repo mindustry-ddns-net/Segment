@@ -11,7 +11,7 @@ class TextInputHandler() {
     /**
      * Adds a text input for a given player.
      */
-    fun addTextInput(player: Player, title: String, message: String, callback: (player: Player, text: String) -> Unit,
+    fun addTextInput(player: Player, title: String, message: String, callback: (player: Player, text: String?) -> Unit,
                      charCount: Int = 1024, default: String = "", numeric: Boolean = false): BaseTextInput {
         val id = generateID()
         val textInput = BaseTextInput(title, message, id, callback, charCount, default, numeric)  // this counts as
@@ -25,7 +25,7 @@ class TextInputHandler() {
      * Executes the callback.
      * @param player The player whose callback will be called.
      */
-    fun executeCallback(player: Player, text: String) {
+    fun executeCallback(player: Player, text: String?) {
         textInputs[player]!!.callback(player, text)
     }
 

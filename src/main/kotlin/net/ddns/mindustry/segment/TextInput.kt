@@ -3,7 +3,7 @@ package net.ddns.mindustry.segment
 import mindustry.gen.Player
 
 class TextInput(
-    private val player: Player, title: String, message: String, callback: (player: Player, text: String) -> Unit,
+    private val player: Player, title: String, message: String, callback: (player: Player, text: String?) -> Unit,
     charCount: Int = 1024, default: String = "", numeric: Boolean = false,
     inputHandler: TextInputHandler = textInputHandler) {
 

@@ -21,6 +21,6 @@ private fun playerTextInputResponse(event: TextInputEvent) {
     textInputHandler.removeTextInput(event.player)
 }
 
-private fun testCallback(player: Player, text: String) {
+private fun testCallback(player: Player, text: String?) {
     player.sendMessage("You typed in: $text")
 }

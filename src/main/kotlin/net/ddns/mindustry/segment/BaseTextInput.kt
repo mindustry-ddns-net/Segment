@@ -8,7 +8,7 @@ import mindustry.net.NetConnection
  * A base class for text inputs. This isn't recommended for usage unless necessary.
  */
 class BaseTextInput(
-    val title: String, val message: String, val id: Int, val callback: (player: Player, text: String) -> Unit,
+    val title: String, val message: String, val id: Int, val callback: (player: Player, text: String?) -> Unit,
     val charCount: Int = 1024, val default: String = "", val numeric: Boolean = false) {
 
     fun show() {
