@@ -5,6 +5,10 @@ import mindustry.mod.Plugin
 
 val textInputHandler = TextInputHandler()
 
+fun getTextInputHandler(): TextInputHandler {
+    return textInputHandler
+}
+
 @Suppress("unused") // it is used, just not in this project
 class Main : Plugin() {
     override fun init() {
