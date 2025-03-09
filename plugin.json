@@ -1,0 +1,7 @@
+{
+  "name": "Segment",
+  "author": "net.ddns.mindustry",
+  "main": "main.kotlinnet.ddns.mindustry.segment.Main",
+  "description": "A framework that abstracts text inputs.",
+  "version": "0.1.0"
+}

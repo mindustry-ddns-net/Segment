@@ -1,0 +1,62 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '2.0.20'
+}
+
+//apply plugin: "java"
+apply plugin: 'maven-publish'
+
+group = 'net.ddns.mindustry'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven{ url "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
+    maven{ url 'https://www.jitpack.io' }
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+ext {
+    mindustryVersion = 'v145'
+    jabelVersion = "93fde537c7"
+}
+
+dependencies{
+    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+    annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
+}
+
+jar{
+    archiveFileName = "${project.archivesBaseName}.jar"
+    from{
+        configurations.runtimeClasspath.collect{it.isDirectory() ? it : zipTree(it)}
+    }
+
+    from(rootDir){
+        include "plugin.json"
+    }
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'net.ddns.mindustry'
+            artifactId = 'Sentry'
+            version = '1.0'
+
+            from components.java
+        }
+    }
+}
