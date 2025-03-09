@@ -39,9 +39,9 @@ jar{
         configurations.runtimeClasspath.collect{it.isDirectory() ? it : zipTree(it)}
     }
 
-    from(rootDir){
-        include "plugin.json"
-    }
+//    from(rootDir){
+//        include "plugin.json"
+//    }
 }
 
 java {
@@ -53,7 +53,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId = 'net.ddns.mindustry'
-            artifactId = 'Sentry'
+            artifactId = 'Segment'
             version = '1.0'
 
             from components.java
