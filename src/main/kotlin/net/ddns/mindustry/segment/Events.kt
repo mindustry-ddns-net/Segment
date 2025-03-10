@@ -17,8 +17,8 @@ fun loadEvents() {
 }
 
 private fun playerTextInputResponse(event: TextInputEvent) {
-    textInputHandler.executeCallback(event.player, event.text)
-    textInputHandler.removeTextInput(event.player)
+    textInputHandler.executeCallback(event.textInputId, event.player, event.text)
+    textInputHandler.removeTextInput(event.textInputId)
 }
 
 private fun testCallback(player: Player, text: String?) {

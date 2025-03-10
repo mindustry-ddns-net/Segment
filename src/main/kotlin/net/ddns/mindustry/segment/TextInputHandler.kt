@@ -6,7 +6,7 @@ import mindustry.gen.Player
  * Class to handle text inputs. This shouldn't be initialized. Use `segment.textInputHandler` instead. Please.
  */
 class TextInputHandler() {
-    private var textInputs: MutableMap<Player, BaseTextInput> = mutableMapOf()
+    private var textInputs: MutableMap<Int, BaseTextInput> = mutableMapOf()
 
     /**
      * Adds a text input for a given player.
@@ -17,7 +17,7 @@ class TextInputHandler() {
         val textInput = BaseTextInput(title, message, id, callback, charCount, default, numeric)  // this counts as
                                                                                                   // necessary usage.
 
-        textInputs[player] = textInput
+        textInputs[id] = textInput
         return textInput
     }
 
@@ -25,15 +25,15 @@ class TextInputHandler() {
      * Executes the callback.
      * @param player The player whose callback will be called.
      */
-    fun executeCallback(player: Player, text: String?) {
-        textInputs[player]!!.callback(player, text)
+    fun executeCallback(id: Int, player: Player, text: String?) {
+        textInputs[id]!!.callback(player, text)
     }
 
     /**
      * Removes a text input.
      */
-    fun removeTextInput(player: Player) {
-        textInputs.remove(player)
+    fun removeTextInput(id: Int) {
+        textInputs.remove(id)
     }
 
     /**
