@@ -14,9 +14,9 @@ repositories {
     maven{ url 'https://www.jitpack.io' }
 }
 
-dependencies {
-    testImplementation 'org.jetbrains.kotlin:kotlin-test'
-}
+//dependencies {
+//    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+//}
 
 test {
     useJUnitPlatform()

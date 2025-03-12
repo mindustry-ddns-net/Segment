@@ -1,17 +1,23 @@
 package net.ddns.mindustry.segment
 
+import arc.Events
+import mindustry.game.EventType.TextInputEvent
 import mindustry.gen.Player
 
 /**
- * Class to handle text inputs. This shouldn't be initialized. Use `segment.textInputHandler` instead. Please.
+ * Class to handle text inputs.
  */
-class TextInputHandler() {
+class TextInputHandler {
     private var textInputs: MutableMap<Int, BaseTextInput> = mutableMapOf()
+
+    init {
+        Events.on(TextInputEvent::class.java, ::textInputEvent)
+    }
 
     /**
      * Adds a text input for a given player.
      */
-    fun addTextInput(player: Player, title: String, message: String, callback: (player: Player, text: String?) -> Unit,
+    fun addTextInput(title: String, message: String, callback: (player: Player, text: String?) -> Unit,
                      charCount: Int = 1024, default: String = "", numeric: Boolean = false): BaseTextInput {
         val id = generateID()
         val textInput = BaseTextInput(title, message, id, callback, charCount, default, numeric)  // this counts as
@@ -25,14 +31,14 @@ class TextInputHandler() {
      * Executes the callback.
      * @param player The player whose callback will be called.
      */
-    fun executeCallback(id: Int, player: Player, text: String?) {
+    private fun executeCallback(id: Int, player: Player, text: String?) {
         textInputs[id]!!.callback(player, text)
     }
 
     /**
      * Removes a text input.
      */
-    fun removeTextInput(id: Int) {
+    private fun removeTextInput(id: Int) {
         textInputs.remove(id)
     }
 
@@ -40,7 +46,12 @@ class TextInputHandler() {
      * Generates an ID. Duplicate IDs aren't a design flaw but rather a stroke of horrific luck. Heck, you probably
      * deserved it!
      */
-    private fun generateID(): Int {
+     private fun generateID(): Int {
         return (Int.MIN_VALUE..Int.MAX_VALUE).random() // pray
+    }
+
+    private fun textInputEvent(event: TextInputEvent) {
+        this.executeCallback(event.textInputId, event.player, event.text)
+        this.removeTextInput(event.textInputId)
     }
 }
