@@ -21,6 +21,6 @@ fun loadEvents() {
 //    textInputHandler.removeTextInput(event.textInputId)
 //}
 
-private fun testCallback(player: Player, text: String?) {
+private fun testCallback(player: Player, text: String?, args: Array<String>) {
     player.sendMessage("You typed in: $text")
 }
