@@ -3,21 +3,28 @@ package net.ddns.mindustry.segment.ui.textInput
 import mindustry.gen.Call
 import mindustry.gen.Player
 import mindustry.net.NetConnection
+import net.ddns.mindustry.segment.ui.Child
 
 /**
  * A base class for text inputs. This isn't recommended for usage unless necessary.
  */
 class BaseTextInput(
-    val title: String, val message: String, val id: Int,
-    val callback: (player: Player, text: String?, args: Array<String>) -> Unit, val charCount: Int = 1024,
-    val default: String = "", val numeric: Boolean = false, val args: Array<String> = arrayOf()) {
+    private val title: String,
+    private val message: String,
+    private val id: Int,
+    override val callback: (player: Player, text: String?, args: Array<String>) -> Unit,
+
+    private val charCount: Int = 1024,
+    private val default: String = "",
+    private val numeric: Boolean = false,
+) : Child(title, message, id, callback) {
 
     @Suppress("Unused")
-    fun show() {
+    override fun show() {
         Call.textInput(this.id, this.title, this.message, this.charCount, this.default, this.numeric)
     }
 
-    fun show(connection: NetConnection) {
+    override fun show(connection: NetConnection) {
         Call.textInput(connection, this.id, this.title, this.message, this.charCount, this.default, this.numeric)
     }
 }

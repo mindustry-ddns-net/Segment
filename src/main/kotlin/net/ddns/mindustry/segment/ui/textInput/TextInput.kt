@@ -8,7 +8,7 @@ class TextInput(
     charCount: Int = 1024, default: String = "", numeric: Boolean = false, args: Array<String> = arrayOf()) {
 
     private var textInput: BaseTextInput =
-        inputHandler.addTextInput(title, message, callback, charCount, default, numeric, args)
+        inputHandler.addTextInput(title, message, callback, charCount, default, numeric)
 
     /**
      * Shows the text input to the player.
