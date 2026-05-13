@@ -1,7 +1,7 @@
-package net.ddns.mindustry.segment
+package net.ddns.mindustry.segment.ui.textInput
 
 import arc.Events
-import mindustry.game.EventType.TextInputEvent
+import mindustry.game.EventType
 import mindustry.gen.Player
 
 /**
@@ -11,7 +11,7 @@ class TextInputHandler {
     private var textInputs: MutableMap<Int, BaseTextInput> = mutableMapOf()
 
     init {
-        Events.on(TextInputEvent::class.java, ::textInputEvent)
+        Events.on(EventType.TextInputEvent::class.java, ::textInputEvent)
     }
 
     /**
@@ -51,7 +51,7 @@ class TextInputHandler {
         return (Int.MIN_VALUE..Int.MAX_VALUE).random() // pray
     }
 
-    private fun textInputEvent(event: TextInputEvent) {
+    private fun textInputEvent(event: EventType.TextInputEvent) {
         this.executeCallback(event.textInputId, event.player, event.text)
         this.removeTextInput(event.textInputId)
     }

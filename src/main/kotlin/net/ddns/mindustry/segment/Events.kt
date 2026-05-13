@@ -3,6 +3,7 @@ package net.ddns.mindustry.segment
 import arc.Events
 import mindustry.game.EventType
 import mindustry.gen.Player
+import net.ddns.mindustry.segment.ui.textInput.TextInput
 
 fun loadEvents() {
 //    Events.on(TextInputEvent::class.java) { e -> playerTextInputResponse(e) }

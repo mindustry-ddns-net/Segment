@@ -1,4 +1,4 @@
-package net.ddns.mindustry.segment
+package net.ddns.mindustry.segment.ui.textInput
 
 import mindustry.gen.Player
 

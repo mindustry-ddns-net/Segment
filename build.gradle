@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'maven-publish'
 
 group = 'net.ddns.mindustry'
-version = '1.0-SNAPSHOT'
+version = '0.1.0'
 
 repositories {
     mavenCentral()
