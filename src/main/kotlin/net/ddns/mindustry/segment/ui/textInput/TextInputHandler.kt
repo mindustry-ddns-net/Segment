@@ -38,13 +38,6 @@ class TextInputHandler : UIHandler<BaseTextInput>() {
 //        children[id]!!.callback(player, text, args)
 //    }
 
-    /**
-     * Removes a text input.
-     */
-    private fun removeTextInput(id: Int) {
-        children.remove(id)
-    }
-
 //    /**
 //     * Generates an ID. Duplicate IDs aren't a design flaw but rather a stroke of horrific luck. Heck, you probably
 //     * deserved it!
@@ -56,6 +49,6 @@ class TextInputHandler : UIHandler<BaseTextInput>() {
     private fun textInputEvent(event: EventType.TextInputEvent) {
         this.children[event.textInputId]!!.text = event.text
         this.executeCallback(event.textInputId, event.player)
-        this.removeTextInput(event.textInputId)
+        this.removeChild(event.textInputId)
     }
 }

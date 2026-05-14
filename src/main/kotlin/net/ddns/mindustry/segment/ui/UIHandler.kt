@@ -21,7 +21,7 @@ abstract class UIHandler<T>
 
 //    abstract fun executeCallback(id: Int, player: Player, text: String?)
 
-    private fun removeChild(id: Int) {
+    fun removeChild(id: Int) {
         children.remove(id)
     }
 
