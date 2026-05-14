@@ -1,6 +1,5 @@
 package net.ddns.mindustry.segment.ui
 
-import mindustry.gen.Call
 import mindustry.gen.Player
 import mindustry.net.NetConnection
 

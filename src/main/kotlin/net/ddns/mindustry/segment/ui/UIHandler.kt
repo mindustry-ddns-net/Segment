@@ -1,7 +1,5 @@
 package net.ddns.mindustry.segment.ui
 
-import arc.Events
-import mindustry.game.EventType
 import mindustry.gen.Player
 
 // NOTE: due to current Mindustry API limitations, events cannot be abstracted. Bummer.
