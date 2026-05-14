@@ -9,10 +9,12 @@ import net.ddns.mindustry.segment.ui.Child
  * A base class for text inputs. This isn't recommended for usage unless necessary.
  */
 class BaseTextInput(
-    private val title: String,
-    private val message: String,
-    private val id: Int,
-    override val callback: (player: Player, text: String?, args: Array<String>) -> Unit,
+    override val title: String,
+    override val message: String,
+    override val id: Int,
+    override val callback: (player: Player, args: Array<String>, Child) -> Unit,
+
+    var text: String?,
 
     private val charCount: Int = 1024,
     private val default: String = "",

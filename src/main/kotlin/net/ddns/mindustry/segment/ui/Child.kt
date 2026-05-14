@@ -5,10 +5,10 @@ import mindustry.gen.Player
 import mindustry.net.NetConnection
 
 abstract class Child (
-    private val title: String,
-    private val message: String,
-    private val id: Int,
-    open val callback: (player: Player, text: String?, args: Array<String>) -> Unit,
+    open val title: String,
+    open val message: String,
+    open val id: Int,
+    open val callback: (player: Player, args: Array<String>, Child) -> Unit,
     val args: Array<String> = arrayOf(),
     private val default: String = "",
     ) {
