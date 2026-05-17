@@ -21,4 +21,12 @@ class BaseMenu(
     override fun show(connection: NetConnection) {
         Call.menu(connection, this.id, this.title, this.message, this.options)
     }
+
+    fun showFollowup() {
+        Call.followUpMenu(this.id, this.title, this.message, this.options)
+    }
+
+    fun showFollowup(connection: NetConnection) {
+        Call.followUpMenu(this.id, this.title, this.message, this.options)
+    }
 }
