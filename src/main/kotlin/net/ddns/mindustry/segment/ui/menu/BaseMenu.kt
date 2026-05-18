@@ -12,7 +12,7 @@ class BaseMenu(
     id: Int,
     private var options: Array<Array<String>>,
     var option: Int,
-    callback: (Player, Array<String>, Child) -> Unit
+    callback: (Player, Child) -> Unit
 ) : Child(title, message, id, callback) {
     override fun show() {
         Call.menu(this.id, this.title, this.message, this.options)

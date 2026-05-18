@@ -14,7 +14,7 @@ abstract class UIHandler<T>
 
     fun executeCallback(id: Int, player: Player) {
         val args = children[id]!!.args
-        children[id]!!.callback(player, args, children[id]!!)
+        children[id]!!.callback(player, children[id]!!)
     }
 
 //    abstract fun executeCallback(id: Int, player: Player, text: String?)

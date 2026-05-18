@@ -33,7 +33,7 @@ fun loadEvents() {
 //    textInputHandler.removeTextInput(event.textInputId)
 //}
 
-private fun testCallback(player: Player, args: Array<String>, child: Child) {
+private fun testCallback(player: Player, child: Child) {
     if (child !is BaseTextInput) {
         return
     }
@@ -41,7 +41,7 @@ private fun testCallback(player: Player, args: Array<String>, child: Child) {
     player.sendMessage("You typed in: ${child.text}")
 }
 
-private fun menuCallback(player: Player, args: Array<String>, child: Child) {
+private fun menuCallback(player: Player, child: Child) {
     if (child !is BaseMenu) {
         return
     }

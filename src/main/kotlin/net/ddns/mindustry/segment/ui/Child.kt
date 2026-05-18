@@ -7,7 +7,7 @@ abstract class Child (
     open val title: String,
     open val message: String,
     open val id: Int,
-    open val callback: (player: Player, args: Array<String>, Child) -> Unit,
+    open val callback: (Player, Child) -> Unit,
     val args: Array<String> = arrayOf(),
     private val default: String = "",
     ) {

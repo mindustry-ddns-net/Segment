@@ -12,7 +12,7 @@ class BaseTextInput(
     override val title: String,
     override val message: String,
     override val id: Int,
-    override val callback: (player: Player, args: Array<String>, Child) -> Unit,
+    override val callback: (player: Player, Child) -> Unit,
 
     var text: String?,
 

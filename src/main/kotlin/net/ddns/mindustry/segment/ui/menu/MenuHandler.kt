@@ -17,7 +17,7 @@ class MenuHandler : UIHandler<BaseMenu>() {
         title: String,
         message: String,
         options: Array<Array<String>>,
-        callback: (Player, Array<String>, Child) -> Unit
+        callback: (Player, Child) -> Unit
     ): BaseMenu {
         val id = generateID()
         val menu = BaseMenu(
