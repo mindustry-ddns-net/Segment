@@ -3,5 +3,5 @@
   "author": "net.ddns.mindustry",
   "main": "net.ddns.mindustry.segment.Main",
   "description": "A framework that abstracts text inputs.",
-  "version": "0.2.1"
+  "version": "v0.4.0"
 }

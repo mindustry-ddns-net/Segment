@@ -10,6 +10,7 @@ abstract class Child (
     open val callback: (Player, Child) -> Unit,
     val args: Array<String> = arrayOf(),
     private val default: String = "",
+    open val persist: Boolean = false
     ) {
 
     @Suppress("Unused")
