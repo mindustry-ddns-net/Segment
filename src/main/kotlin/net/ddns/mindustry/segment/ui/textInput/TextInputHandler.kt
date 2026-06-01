@@ -20,10 +20,10 @@ class TextInputHandler : UIHandler<BaseTextInput>() {
      * Adds a text input for a given player.
      */
     fun addTextInput(title: String, message: String, callback: (player: Player, Child) -> Unit,
-                     charCount: Int = 1024, default: String = "", numeric: Boolean = false
+                     charCount: Int = 1024, default: String = "", numeric: Boolean = false, persist: Boolean = false
     ): BaseTextInput {
         val id = generateID()
-        val textInput = BaseTextInput(title, message, id, callback, null, charCount, default, numeric)
+        val textInput = BaseTextInput(title, message, id, callback, null, charCount, default, numeric, persist)
 
         children[id] = textInput
         return textInput

@@ -19,7 +19,8 @@ class BaseTextInput(
     private val charCount: Int = 1024,
     private val default: String = "",
     private val numeric: Boolean = false,
-) : Child(title, message, id, callback) {
+    override val persist: Boolean = false
+) : Child(title, message, id, callback, persist=persist) {
 
     @Suppress("Unused")
     override fun show() {
