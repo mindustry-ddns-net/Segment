@@ -9,7 +9,7 @@ import net.ddns.mindustry.segment.ui.Child
 class BaseMenu(
     title: String,
     message: String,
-    id: Int,
+    override var id: Int,
     private var options: Array<Array<String>>,
     var option: Int,
     callback: (Player, Child) -> Unit
