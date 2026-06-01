@@ -49,6 +49,6 @@ class TextInputHandler : UIHandler<BaseTextInput>() {
     private fun textInputEvent(event: EventType.TextInputEvent) {
         this.children[event.textInputId]!!.text = event.text
         this.executeCallback(event.textInputId, event.player)
-        this.removeChild(event.textInputId)
+        if (!this.children[event.textInputId]!!.persist) { this.removeChild(event.textInputId) }
     }
 }
