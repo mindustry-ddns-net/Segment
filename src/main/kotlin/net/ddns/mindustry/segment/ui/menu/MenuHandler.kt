@@ -17,7 +17,8 @@ class MenuHandler : UIHandler<BaseMenu>() {
         title: String,
         message: String,
         options: Array<Array<String>>,
-        callback: (Player, Child) -> Unit
+        callback: (Player, Child) -> Unit,
+        persist: Boolean = false
     ): BaseMenu {
         val id = generateID()
         val menu = BaseMenu(
@@ -26,7 +27,8 @@ class MenuHandler : UIHandler<BaseMenu>() {
             id,
             options,
             -1, // no option selected yet
-            callback
+            callback,
+            persist
         )
 
         children[id] = menu
@@ -36,6 +38,7 @@ class MenuHandler : UIHandler<BaseMenu>() {
     private fun menuInputEvent(event: EventType.MenuOptionChooseEvent) {
         this.children[event.menuId]!!.option = event.option
         this.executeCallback(event.menuId, event.player)
-        this.removeChild(event.menuId)
+
+        if (!this.children[event.menuId]!!.persist) { this.removeChild(event.menuId) }
     }
 }

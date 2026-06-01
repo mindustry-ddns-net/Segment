@@ -1,6 +1,5 @@
 package net.ddns.mindustry.segment.ui.menu
 
-import arc.util.Log
 import mindustry.gen.Call
 import mindustry.gen.Player
 import mindustry.net.NetConnection
@@ -12,8 +11,9 @@ class BaseMenu(
     override var id: Int,
     private var options: Array<Array<String>>,
     var option: Int,
-    callback: (Player, Child) -> Unit
-) : Child(title, message, id, callback) {
+    callback: (Player, Child) -> Unit,
+    persist: Boolean = false
+) : Child(title, message, id, callback, persist=persist) {
     override fun show() {
         Call.menu(this.id, this.title, this.message, this.options)
     }
