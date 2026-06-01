@@ -20,7 +20,7 @@ kotlin {
 apply plugin: 'maven-publish'
 
 group = 'net.ddns.mindustry'
-version = '0.2.1'
+version = 'v0.3.0'
 
 repositories {
     mavenCentral()
