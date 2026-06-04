@@ -8,7 +8,7 @@ import net.ddns.mindustry.segment.ui.Child
 class BaseMenu(
     title: String,
     message: String,
-    override var id: Int,
+    override val id: Int,
     private var options: Array<Array<String>>,
     var option: Int,
     callback: (Player, Child) -> Unit,
@@ -22,11 +22,22 @@ class BaseMenu(
         Call.menu(connection, this.id, this.title, this.message, this.options)
     }
 
-    fun showFollowup() {
-        Call.followUpMenu(this.id, this.title, this.message, this.options)
+    /**
+     * Rather than showing a normal menu, it instead shows a followup menu. A followup menu prevents any "flashing" from
+     *      * a regular menu closing and another one opening immediately after.
+     * @param base: An object of type `FollowupBase`, which stores the ID for the series of followup menus.
+     */
+    fun showFollowup(base: FollowupBase) {
+        Call.followUpMenu(base.id, this.title, this.message, this.options)
     }
 
-    fun showFollowup(connection: NetConnection) {
-        Call.followUpMenu(this.id, this.title, this.message, this.options)
+    /**
+     * Rather than showing a normal menu, it instead shows a followup menu. A followup menu prevents any "flashing" from
+     * a regular menu closing and another one opening immediately after.
+     * @param connection: The `NetConnection` object from the `Player` object.
+     * @param base: An object of type `FollowupBase`, which stores the ID for the series of followup menus.
+     */
+    fun showFollowup(connection: NetConnection, base: FollowupBase) {
+        Call.followUpMenu(base.id, this.title, this.message, this.options)
     }
 }
